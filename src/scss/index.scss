@@ -1,0 +1,254 @@
+@import "~bootstrap/scss/bootstrap";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        clip-path: polygon(0 46%,
+                15% 45%,
+                34% 52%,
+                50% 61%,
+                68% 65%,
+                85% 61%,
+                100% 53%,
+                100% 100%,
+                0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(3% 59%,
+                17% 67%,
+                36% 70%,
+                51% 66%,
+                65% 56%,
+                81% 49%,
+                99% 45%,
+                100% 100%,
+                0% 100%);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: cursive;
+    color: white;
+}
+
+body {
+    background-image: url('../img/background.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#game-options {
+    position: absolute;
+    color: #000;
+    top: 40%;
+    right: 25%;
+    animation: fade-in 5s;
+
+    #load-pre-game {
+        color: rgb(205, 194, 194);
+
+        &.active {
+            color: $dark;
+
+            &:hover {
+                cursor: pointer;
+                color: $warning;
+                text-shadow: 2px 2px 8px $warning;
+            }
+        }
+    }
+
+    #start-new-game:hover {
+        cursor: pointer;
+        color: $success;
+        text-shadow: 2px 2px 8px $success;
+    }
+}
+
+.liquid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.liquid h2 {
+    position: absolute;
+    font-size: 4rem;
+}
+
+.liquid h2:nth-child(2) {
+    color: #fff;
+    text-shadow: -2px 2px 0px #183954, -4px 4px 0px #183954, -6px 6px 0px #183954,
+        -8px 8px 0px #183954, -18px 18px 20px rgba(0, 0, 0, 0.5),
+        -18px 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.liquid h2:nth-child(3) {
+    color: #2196f3;
+    animation: animate 3s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+.liquid h2:nth-child(4) {
+    color: #2196f3;
+    opacity: 0.5;
+    animation: animate 6s ease-in-out infinite;
+}
+
+.liquid h2:nth-child(5) {
+    color: #2196f3;
+    animation: animate 4s ease-in-out infinite;
+}
+
+#helm-img {
+    position: relative;
+    content: url('../img/helm.png');
+    height: 10rem;
+}
+
+#place-ships {
+    opacity: 1;
+    -webkit-transition: opacity 1500ms linear;
+    transition: opacity 1500ms linear;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+#ships-img {
+    img {
+        animation: fade-in 3s;
+    }
+}
+
+#robot-img {
+    height: 3rem;
+    content: url('../img/robotics.png');
+}
+
+#soldier-img {
+    height: 3rem;
+    content: url('../img/navy.png');
+}
+
+.col {
+    border: 1.5px solid white;
+    height: 3rem;
+}
+
+.dropzone {
+    transition: background-color 0.3s;
+}
+
+.drop-active {
+    border: dashed 1.5px #aaa
+}
+
+.drop-target {
+    background-color: rgb(107 220 160);
+    border-color: #000;
+    border-style: solid;
+}
+
+.drag-drop {
+    display: inline-block;
+
+    touch-action: none;
+    transform: translate(0px, 0px);
+
+    transition: background-color 0.3s;
+}
+
+.colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+}
+
+.colored-toast .swal2-title {
+    color: white;
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast .swal2-html-container {
+    color: white;
+}
+
+.swal-background-img {
+    height: 25rem;
+    background-image: url('../img/soldier.gif') !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat;
+}
+
+.typewriter {
+    font-family: "Lucida Console", Courier, monospace;
+    text-shadow: 2px 2px 2px #000;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: typing 3s steps(40, end),
+}
+
+.shot-hover,
+.missing-shot,
+.hit-shot,
+.ship-background {
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: crosshair;
+    background-position: center;
+}
+
+.shot-hover {
+    background-image: url('../img/bomb.png');
+}
+
+.missing-shot {
+    background-image: url('../img/close.png');
+}
+
+.hit-shot {
+    background-image: url('../img/explosion.png');
+    background-color: $danger;
+}
+
+.ship-background {
+    background-image: url('../img/ship.png');
+}
