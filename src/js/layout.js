@@ -304,7 +304,7 @@ const generalMessage = () => {
         position: 'center',
         customClass: 'swal-background-img',
         showConfirmButton: false,
-        width: '50%',
+        width: '75%',
         timer: 4000,
         onOpen: new Audio(bugleStartSound).play() 
     })
